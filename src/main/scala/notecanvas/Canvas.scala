@@ -7,7 +7,7 @@ import javafx.scene.input.{KeyEvent, MouseEvent}
 import org.jfugue.Player
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{future, _}
+import scala.concurrent.future
 import scalafx.Includes._
 import scalafx.animation.Timeline
 import scalafx.application.JFXApp
@@ -21,8 +21,6 @@ import scalafx.scene.text.Text
 
 object Canvas extends JFXApp {
 
-  private var notes: Set[Note] = Set.empty
-  
   val debugText: Text = new Text {
     text = "Debug:"
     alignmentInParent = Pos.CenterLeft
@@ -112,7 +110,7 @@ object Canvas extends JFXApp {
               newCircle.radius -> 0
             }
           )
-        }.play
+        }.play()
       }
     }
   }
